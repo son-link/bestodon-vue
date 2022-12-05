@@ -1,4 +1,7 @@
 import { defineStore } from "pinia";
+import axios from "axios";
+
+axios.defaults.baseUrl = import.meta.env.BASE_URL;
 
 export const accountsListStore = defineStore("accounts", {
   state: () => ({
@@ -12,7 +15,7 @@ export const accountsListStore = defineStore("accounts", {
   }),
   actions: {
     getList(list = "all") {
-      this.$axios.get(`/lists/${list}.json`).then((resp) => {
+      axios.get(`/lists/${list}.json`).then((resp) => {
         if (resp.data) {
           this.allAccts = resp.data;
           this.totalAccts = this.allAccts.length;
