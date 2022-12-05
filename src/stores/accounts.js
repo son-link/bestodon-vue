@@ -1,8 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import process from "process";
 
-axios.defaults.baseURL = process.env.BASE_URL || "";
+axios.defaults.baseURL = "https://son-link.github.io/bestodon-vue";
 
 export const accountsListStore = defineStore("accounts", {
   state: () => ({
