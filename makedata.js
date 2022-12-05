@@ -34,7 +34,8 @@ const getList = (list, accounts) => {
       ).then(
         axios.spread(async (...allResp) => {
           allResp.forEach((resp) => {
-            if (!resp.data.error) {
+            if (resp.data) {
+              if (resp.data.error) return;
               const data = resp.data;
               const domain = new URL(data.url);
               const domainAPI = new URL(api_url);
