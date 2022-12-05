@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-axios.defaults.baseUrl = "bestodon-vue/";
+const instance = axios.create();
+instance.defaults.baseUrl = "bestodon-vue/";
 
 export const accountsListStore = defineStore("accounts", {
   state: () => ({
@@ -15,7 +16,7 @@ export const accountsListStore = defineStore("accounts", {
   }),
   actions: {
     getList(list = "all") {
-      axios.get(`/lists/${list}.json`).then((resp) => {
+      instance.get(`/lists/${list}.json`).then((resp) => {
         if (resp.data) {
           this.allAccts = resp.data;
           this.totalAccts = this.allAccts.length;
