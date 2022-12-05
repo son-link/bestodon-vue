@@ -9,17 +9,16 @@ jobs:
   github-pages:
     runs-on: ubuntu-latest
     steps:
-      - name: create env file
-        run: |
-          touch .env
-          echo BASE_URL='https://son-link.github.io/bestodon-vue' >> .env
-          echo NODE_ENV=production >> .env
       - uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: '18'
       - run: npm install
+      - name: create env file and build
+        run: |
+          touch .env
+          echo BASE_URL='https://son-link.github.io/bestodon-vue/' >> .env
       - run: npm run build
       - run: npm run makedata
       - name: Deploy
