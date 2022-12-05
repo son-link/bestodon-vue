@@ -12,7 +12,7 @@ jobs:
       - name: create env file
         run: |
           touch .env
-          echo BASE_URL='https://son-link.github.io/' >> .env
+          echo BASE_URL='https://son-link.github.io/bestodon-vue' >> .env
           echo NODE_ENV=production >> .env
       - uses: actions/checkout@v2
       - name: Setup Node
