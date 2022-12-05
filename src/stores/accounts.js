@@ -49,7 +49,6 @@ export const accountsListStore = defineStore("accounts", {
         this.totalAccts = results.length;
         this.offset = 0;
         this.accts = this.allAccts.slice(this.offset, 10);
-        console.log(this.accts);
       }
     },
     clearSearch() {
