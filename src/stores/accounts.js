@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import axios from "axios";
 
 export const accountsListStore = defineStore("accounts", {
   state: () => ({
@@ -13,7 +12,7 @@ export const accountsListStore = defineStore("accounts", {
   }),
   actions: {
     getList(list = "all") {
-      axios.get(`/lists/${list}.json`).then((resp) => {
+      this.$axios.get(`/lists/${list}.json`).then((resp) => {
         if (resp.data) {
           this.allAccts = resp.data;
           this.totalAccts = this.allAccts.length;

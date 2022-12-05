@@ -3,7 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import process from "process";
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   publicPath: process.env.NODE_ENV === "production" ? "/bestodon-vue" : "/",
   routes: [
     {
