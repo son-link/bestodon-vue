@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-axios.defaults.baseUrl = import.meta.env.BASE_URL;
+axios.defaults.baseUrl = "bestodon-vue/";
 
 export const accountsListStore = defineStore("accounts", {
   state: () => ({
